@@ -1,9 +1,9 @@
-/* Este repositório base fué creado para ayudarte en caso que no sepas como comenzar, recuerda que el portafolio es tu carta de presentación y debes darle tu cara, por eso te invitamos a personalizarlo según tu estilo y preferencias no te limites apenas al layout propuesto en figma  
-*/
 :root {
     --color-de-fondo: #F5F5F5;
     --color-de-fondo-menu: #ffffff;
     --color-de-link: #000000;
+    --color-de-fondo-tarjeta: #ffffff;
+    --color-de-input: #2A7AE4;
 }
 
 body {
@@ -19,6 +19,11 @@ ol, ul, li {
     list-style: none;
 }
 
+ul {
+  padding: 0;
+  margin: 0;
+}
+
 a {
     text-decoration: none;
     color: var(--color-de-link);
@@ -27,10 +32,10 @@ a {
 /* ------------------------------ Sección Menú -------------------------------*/
 .cabecera {
     display: flex;
-    flex-direction: column;
     align-items: center;
     padding: 1rem;
     background-color: var(--color-de-fondo-menu);
+    gap: 15px;
 }
 
 .cabecera__logo {
@@ -50,22 +55,174 @@ a {
     font-size: 0.9rem;
 }
 /* ------------------------------ Sección Presentación ------------------------------*/
+.presentacion {
+  padding: 1rem;
+}
 
+.presentacion__foto {
+  width: 98px;
+  height: 98px;
+  border-radius: 50%;
+}
+
+.redes {
+  display: flex;
+  padding: 0;
+  gap: 15px;
+}
+
+.redes__img {
+  flex-grow: 1;
+}
 
 /* ------------------------------ Sección sobre mí ----------------------------------*/
+.sobre-mi {
+  padding: 1rem;
+}
 
+/*------------------------------ Sección de Habilidades y Aficiones ------------------------------*/
+.habilidades,
+.aficiones {
+  padding: 1rem;
+}
 
-/*------------------------------ Sección de Habilidades ------------------------------*/
+.habilidades__titulo,
+.aficiones__titulo {
+  text-align: center;
+}
 
+.habilidades__lista,
+.aficiones__lista {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
 
-/*------------------------------ Sección de Aficiones --------------------------------*/
+.habilidades__elemento,
+.aficiones__elemento {
+  width: 156px;
+  height: 118px;
+  background-color: var(--color-de-fondo-tarjeta);
+  padding: 1rem;
+  box-sizing: border-box;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: end;
+}
 
+.habilidades__icono,
+.aficiones__icono {
+  align-self: flex-start;
+}
+
+.habilidades__nombre,
+.aficiones__nombre {
+  margin: 0;
+}
+
+/*------------------------------ Sección de Formación --------------------------------*/
+.formacion {
+  padding: 1rem;
+}
+
+.formacion__titulo {
+  text-align: center;
+}
+
+.formacion__lista {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.formacion__elemento {
+  width: 225px;
+  flex-grow: 1;   
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.formacion__icono {
+  width: 100%;
+  align-self: end;
+}
+
+.formacion__informacion {
+  align-self: flex-end;
+}
 
 /*------------------------------ Sección de Proyectos --------------------------------*/
+.proyectos {
+  padding: 1rem;
+}
 
+.proyectos__titulo {
+  text-align: center;
+}
+
+.proyectos__repositorio {
+  padding: 12px 20px;
+  border: 1px solid var(--color-de-input);
+  color: var(--color-de-input);
+}
+
+.proyectos__demo {
+  padding: 12px 20px;
+  border: 1px solid var(--color-de-input);
+  background-color: var(--color-de-input);
+  color: #ffffff;
+}
 
 /*------------------------------ Sección de Contacto ---------------------------------*/
+.contacto {
+  padding: 1rem;
+}
 
+.contacto__formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contacto__campo {
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+  transition: all .1s linear;
+  border-radius: 5px;
+}
+
+.contacto__campo:focus {
+  border-bottom: 3px solid var(--color-de-input);
+}
+
+.contacto__campo--textarea {
+  height: 90px;
+}
+
+.contacto__boton {
+  align-self: flex-start;
+  padding: 12px 20px;
+  background-color: var(--color-de-input);
+  color: #FFF;
+  border: none;
+}
+
+/* ------------------------------ Footer -------------------------------------------- */
+.rodapie {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  background-color: var(--color-de-fondo-menu);
+  gap: 15px;
+}
+
+.rodapie__texto {
+  text-align: center;
+}
 
 /* ------------------------------ Responsividad ---------------------------------------*/
 
@@ -75,6 +232,7 @@ a {
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
+        white-space: nowrap;
     }
 
     .cabecera__logo {
@@ -88,12 +246,27 @@ a {
     .navegacion__lista {
         display: flex;
         flex-direction: row;
-        gap: 1rem;
+        gap: .7rem;
         margin-top: 0;
     }
 
     .navegacion__elemento a {
         font-size: 1rem;
+    }
+
+    .presentacion {
+      display: flex;
+      flex-direction: row-reverse;
+    }
+
+    .presentacion__foto {
+      width: 225px;
+      height: 225px;
+    }
+
+    .habilidades__elemento,
+    .aficiones__elemento {
+      width: 190px;
     }
 }
 
@@ -102,9 +275,46 @@ a {
     /* Aquí puedes ajustar aún más el diseño para pantallas grandes */
     .cabecera__titulo {
         font-size: 1.8rem;
+        flex-grow: 1;
+        text-align: left;
     }
 
     .navegacion__elemento a {
         font-size: 1.1rem;
+    }
+
+    .navegacion__lista {
+      gap: 1rem;
+    }
+
+    .presentacion__foto { 
+      height: 368px;
+      width: auto;
+    }
+
+    .presentacion__contenedor {
+      flex-grow: 1;
+    }
+
+    .presentacion__titulo {
+      font-size: 52px;
+      line-height: 52px;
+    }
+
+    .presentacion__subtitulo {
+      font-size: 22px;
+    }
+
+    .redes {
+      gap: 40px;
+    }
+
+    .redes__img {
+      flex-grow: 0;
+    }
+    
+    .habilidades__elemento,
+    .aficiones__elemento {
+      width: 156px;
     }
 }
